@@ -4,7 +4,6 @@ import { Outlet } from 'react-router-dom'
 const LayoutPublic = () => {
   return (
     <div>
-     <h1>Header</h1>
 
 <main>
     <Outlet/>
