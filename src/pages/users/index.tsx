@@ -1,9 +1,14 @@
-import './styles.scss'
+import DataTable from "../../components/DataTable";
+import Navbar from "../../components/Navbar";
+import Sidebar from "../../components/Sidebar";
+import "./styles.scss";
 
 const Users = () => {
   return (
-    <div>Users</div>
-  )
-}
+    <div className="users">
+      <DataTable />
+    </div>
+  );
+};
 
-export default Users
+export default Users;

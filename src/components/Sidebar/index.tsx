@@ -11,37 +11,53 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import SettingsSystemDaydreamOutlinedIcon from "@mui/icons-material/SettingsSystemDaydreamOutlined";
 import PsychologyOutlinedIcon from "@mui/icons-material/PsychologyOutlined";
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined";
-
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { DarkModeContext } from "../../context/ContextDark";
 const Sidebar = () => {
+  const {
+    state: { darkMode },
+    dispatch,
+  } = useContext(DarkModeContext);
+
   return (
     <div className="sidebar">
-      <div className="top">
-        <span className="logo">HennerAdmin </span>
-      </div>
+      <Link to="/">
+        <div className="top">
+          <span className="logo">HennerAdmin </span>
+        </div>
+      </Link>
       <hr />
       <div className="center">
         <ul>
           <p className="title">MAIN</p>
+          <Link to="/">
+            <li>
+              <DashboardIcon className="icon" />
+              <span>DashBoard</span>
+            </li>
+          </Link>
+          <p className="title">LIST</p>
+          <Link to="/users">
+            <li>
+              <PersonOutlineIcon className="icon" />
+              <span>users</span>
+            </li>
+          </Link>
+          <Link to="/products">
+            <li>
+              <LocalShippingIcon className="icon" />
+              <span>Product</span>
+            </li>
+          </Link>
+          <Link to="/orders">
+            <li>
+              <CreditCardIcon className="icon" />
+              <span>Orders</span>
+            </li>
+          </Link>
           <li>
-            <DashboardIcon className="icon" />
-            <span>DashBoard</span>
-          </li>
-            <p className="title">LIST</p>
-          <li>
-
-            <PersonOutlineIcon className="icon" />
-            <span>user</span>
-          </li>
-          <li>
-            <LocalShippingIcon className="icon" />
-            <span>Product</span>
-          </li>
-          <li>
-            <CreditCardIcon className="icon" />
-            <span>Orders</span>
-          </li>
-          <li>
-            <StoreIcon  className="icon"/>
+            <StoreIcon className="icon" />
             <span>Delivery</span>
           </li>
           <p className="title">USEFUL</p>
@@ -55,16 +71,14 @@ const Sidebar = () => {
           </li>
           <p className="title">SERVICE</p>
           <li>
-            <PsychologyOutlinedIcon  className="icon" />
+            <PsychologyOutlinedIcon className="icon" />
             <span>Logs</span>
           </li>{" "}
           <li>
             <SettingsSystemDaydreamOutlinedIcon className="icon" />
             <span>System Health</span>
           </li>
-          
           <p className="title">USERS</p>
-
           <li>
             <SettingsApplicationsIcon className="icon" />
             <span>Settings</span>
@@ -81,12 +95,14 @@ const Sidebar = () => {
       </div>
 
       <div className="bottom">
-        <div className="color-option">
-
-        </div>
-        <div className="color-option">
-            
-            </div>
+        <div
+          className="color-option"
+          onClick={() => dispatch({ type: "LIGHT" })}
+        ></div>
+        <div
+          className="color-option"
+          onClick={() => dispatch({ type: "DARK" })}
+        ></div>
       </div>
     </div>
   );

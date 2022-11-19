@@ -6,9 +6,9 @@ import { createBrowserRouter } from "react-router-dom";
 import NotFound from "../pages/notFound";
 import LayoutPublic from "../Layout/LayoutPublic";
 import Users from "../pages/users";
-import UserDetails from '../pages/userDetails';
+import UserDetails from "../pages/userDetails";
 import Products from "../pages/products";
-import ProductDetails from '../pages/productDetails';
+import ProductDetails from "../pages/productDetails";
 import NewProduct from "../pages/newProduct";
 export const router = createBrowserRouter([
   {
@@ -35,9 +35,9 @@ export const router = createBrowserRouter([
             path: "/users/:id",
             element: <UserDetails />,
           },
-         
+
           {
-            path: "users/new",
+            path: "users/newuser",
             element: <NewUser />,
           },
           {
@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
             path: "/products/:id",
             element: <ProductDetails />,
           },
-         
+
           {
             path: "products/new",
             element: <NewProduct />,
